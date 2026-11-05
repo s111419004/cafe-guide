@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAFE NOTES | 全台自習讀書工作咖啡指南</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23231B16'/%3E%3Cpath d='M16 24h26v16a12 12 0 0 1-12 12H28a12 12 0 0 1-12-12V24z' fill='%23FAF8F5' stroke='%23C86D51' stroke-width='2'/%3E%3Cpath d='M42 27h5a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h-5' fill='none' stroke='%23FAF8F5' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M23 15c0 3-2 4-2 6M29 13c0 3-2 4-2 6M35 15c0 3-2 4-2 6' stroke='%23E5A859' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='29' cy='33' r='5' fill='%23C86D51'/%3E%3Crect x='12' y='52' width='34' height='4' rx='2' fill='%23E5A859'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            serif: ['"Noto Serif TC"', 'serif'],
+          },
+          colors: {
+            oat: '#FAF8F5', cream: '#F4ECE4', sand: '#E6DDD2',
+            espresso: '#231B16', roast: '#3D2D23', caramel: '#7D614E', terracotta: '#C86D51'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-oat journal-paper text-espresso min-h-screen flex flex-col antialiased selection:bg-sand selection:text-espresso">
+
+  <header class="sticky top-0 z-40 bg-oat/95 backdrop-blur-md border-b border-sand shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[4rem] py-2 flex items-center justify-between gap-2 sm:gap-4">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-espresso text-sand flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+          <i class="fa-solid fa-mug-saucer text-sm sm:text-base text-[#E5A859]"></i>
+        </div>
+        <div class="flex flex-col justify-center">
+          <span class="font-serif font-black text-lg sm:text-xl tracking-tight text-espresso leading-tight whitespace-nowrap">CAFE NOTES</span>
+          <p class="hidden sm:block text-[12px] sm:text-[13px] text-caramel font-medium leading-none mt-0.5 whitespace-nowrap">全台自習工作咖啡指南</p>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1 bg-cream/70 p-1.5 rounded-xl border border-sand shrink-0">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap bg-white text-espresso shadow-xs">
+          <i class="fa-solid fa-house opacity-70 mr-1"></i> 首頁
+        </a>
+        <a href="cafes.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-magnifying-glass opacity-70 mr-1"></i> 找咖啡廳
+        </a>
+        <a href="random.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-dice opacity-70 mr-1"></i> 選擇障礙？
+        </a>
+        <a href="guide.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-book-open-reader opacity-70 mr-1"></i> 遊牧須知
+        </a>
+      </nav>
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <a href="https://www.threads.net/@mag__art_/post/C2GQVKvyxQk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-semibold bg-white border border-sand text-espresso hover:border-terracotta hover:text-terracotta transition shadow-2xs whitespace-nowrap">
+          <i class="fa-brands fa-threads text-sm"></i>
+          <span><span class="hidden md:inline">Threads : </span><strong class="underline decoration-terracotta underline-offset-2">mag__art_</strong></span>
+        </a>
+        <button onclick="toggleFavDrawer(true)" class="relative flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-semibold border border-sand bg-white hover:bg-cream text-espresso transition active:scale-95 whitespace-nowrap">
+          <i class="fa-solid fa-bookmark text-terracotta"></i>
+          <span class="hidden sm:inline">口袋名單</span>
+          <span id="favBadge" class="hidden px-1.5 sm:px-2 py-0.5 bg-terracotta text-white text-[11px] sm:text-[13px] rounded-full font-bold leading-none">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-sand grid grid-cols-4 py-2 text-center shadow-lg">
+    <a href="index.html" class="text-[13px] font-bold py-1 text-espresso flex flex-col items-center">
+      <i class="fa-solid fa-house text-base mb-1"></i><span>首頁</span>
+    </a>
+    <a href="cafes.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-magnifying-glass text-base mb-1"></i><span>找咖啡廳</span>
+    </a>
+    <a href="random.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-dice text-base mb-1"></i><span>選擇障礙？</span>
+    </a>
+    <a href="guide.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-book-open-reader text-base mb-1"></i><span>遊牧須知</span>
+    </a>
+  </div>
+  <main class="flex-1 pb-16 md:pb-8">
+    <section class="bg-gradient-to-b from-cream/80 to-oat pt-12 pb-14 px-4 text-center border-b border-sand relative overflow-hidden">
+      <div class="max-w-4xl mx-auto relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[13px] font-bold bg-white border border-sand text-terracotta mb-4 shadow-2xs">
+          <span class="pulse-dot"></span>
+          <span>全台 190+ 自習工作咖啡館實時地圖</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-espresso tracking-wide leading-snug mb-4">
+          <div>專為讀書、寫作與遠端工作者打造</div>
+          <div class="text-terracotta mt-2 inline-block relative">
+            <span class="relative z-10">理想咖啡館手帳</span>
+            <span class="absolute bottom-1 inset-x-0 h-3 bg-[#E5A859]/30 -rotate-1 rounded-sm -z-0"></span>
+          </div>
+        </h1>
+        <p class="text-[15px] sm:text-[16px] text-caramel max-w-xl mx-auto leading-relaxed mb-6">
+          不再為客滿限時、沒有插座、環境吵雜而焦慮。<br class="hidden sm:inline">
+          結構化整理插座配置、限時規定、實時營業狀態與真實探店筆記。
+        </p>
+        <div onclick="shuffleCoffeeQuote()" class="inline-flex items-center gap-3 bg-white/90 border border-sand hover:border-terracotta px-4 py-2.5 rounded-2xl shadow-2xs mb-7 cursor-pointer group transition active:scale-95">
+          <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-lg text-terracotta relative">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span class="steam-line absolute -top-1 left-3 w-1 h-2 bg-sand rounded-full"></span>
+            <span class="steam-line absolute -top-2 right-3 w-1 h-3 bg-sand rounded-full" style="animation-delay: 0.6s;"></span>
+          </div>
+          <div class="text-left">
+            <div class="text-[11px] text-caramel font-semibold uppercase tracking-wider flex items-center gap-1">
+              <span>今日心情特調</span>
+              <span class="text-[10px] bg-sand/60 px-1.5 rounded text-espresso group-hover:bg-terracotta group-hover:text-white transition">點我換一杯 ↻</span>
+            </div>
+            <div id="coffeeQuoteText" class="text-[13px] font-bold text-espresso">「深焙美式 + 降噪耳機，今天產出效率加倍！」</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-3.5">
+          <a href="cafes.html" class="px-7 py-3 rounded-xl bg-espresso hover:bg-black text-white text-[15px] font-bold shadow-md hover:shadow-lg transition active:scale-95 flex items-center gap-2">
+            <i class="fa-solid fa-compass text-[#E5A859]"></i> 開始尋找咖啡廳
+          </a>
+          <a href="random.html" class="px-6 py-3 rounded-xl bg-white border border-sand hover:bg-cream text-espresso text-[15px] font-bold shadow-2xs transition active:scale-95 flex items-center gap-2">
+            <i class="fa-solid fa-dice text-terracotta"></i> 選擇障礙？
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center mb-8">
+        <h2 class="font-serif text-2xl font-bold text-espresso">今天想用什麼心境工作？</h2>
+        <p class="text-[13px] sm:text-[15px] text-caramel mt-1">點擊情境，立即前往搜尋頁自動套用篩選條件</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="cafes.html?tag=有插座&tag=適合讀書工作" class="bg-white rounded-2xl border border-sand p-6 shadow-2xs hover:border-terracotta hover:shadow-md transition group flex flex-col justify-between hover:-rotate-1">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cream text-terracotta flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition shadow-2xs">
+              <i class="fa-solid fa-plug-circle-bolt"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-espresso mb-2 group-hover:text-terracotta transition">筆電重度工作者</h3>
+            <p class="text-[15px] text-caramel leading-relaxed">
+              座位插座充足、光線明亮、Wi-Fi 穩定，為寫程式、做簡報與長時閱讀打造的無憂空間。
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-sand/60 flex items-center justify-between text-[13px] font-bold text-terracotta">
+            <span>查看插座充足名單</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+        <a href="cafes.html?tag=深夜營業&tag=不限時" class="bg-white rounded-2xl border border-sand p-6 shadow-2xs hover:border-terracotta hover:shadow-md transition group flex flex-col justify-between hover:rotate-1">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cream text-terracotta flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition shadow-2xs">
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-espresso mb-2 group-hover:text-terracotta transition">夜貓子深夜趕工</h3>
+            <p class="text-[15px] text-caramel leading-relaxed">
+              營業至午夜 00:00 甚至凌晨四點，越夜越沉靜，陪伴你在寂靜夜色中衝刺產出。
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-sand/60 flex items-center justify-between text-[13px] font-bold text-terracotta">
+            <span>探索深夜營業避難所</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+        <a href="cafes.html?tag=店貓/寵物友善&tag=安靜專注" class="bg-white rounded-2xl border border-sand p-6 shadow-2xs hover:border-terracotta hover:shadow-md transition group flex flex-col justify-between hover:-rotate-1">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cream text-terracotta flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition shadow-2xs">
+              <i class="fa-solid fa-cat"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-espresso mb-2 group-hover:text-terracotta transition">療癒店貓陪伴區</h3>
+            <p class="text-[15px] text-caramel leading-relaxed">
+              店內有親人店貓巡視陪伴，在思考碰壁或讀書疲累時，隨時摸摸貓咪替心靈充電。
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-sand/60 flex items-center justify-between text-[13px] font-bold text-terracotta">
+            <span>看有店貓的咖啡店</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+          </div>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 bg-white rounded-2xl border border-sand p-6 text-center shadow-2xs">
+        <div><div class="font-serif text-2xl sm:text-3xl font-black text-espresso">190+</div><div class="text-[13px] text-caramel mt-0.5">實地探訪收錄</div></div>
+        <div><div class="font-serif text-2xl sm:text-3xl font-black text-terracotta">95%</div><div class="text-[13px] text-caramel mt-0.5">配備插座或不限時</div></div>
+        <div><div class="font-serif text-2xl sm:text-3xl font-black text-espresso">5 大區</div><div class="text-[13px] text-caramel mt-0.5">雙北、新竹、台中、嘉義</div></div>
+        <div><div class="font-serif text-2xl sm:text-3xl font-black text-terracotta">實時</div><div class="text-[13px] text-caramel mt-0.5">在地營業狀態判斷</div></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="favDrawer" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-espresso/40 backdrop-blur-2xs" onclick="toggleFavDrawer(false)"></div>
+    <div class="absolute inset-y-0 right-0 max-w-sm w-full bg-white shadow-xl border-l border-sand flex flex-col justify-between p-6">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-sand">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-bookmark text-terracotta"></i>
+            <h3 class="font-serif text-lg font-bold text-espresso">口袋名單</h3>
+            <span id="drawerFavCount" class="text-[13px] px-2 py-0.5 rounded-full bg-cream text-caramel font-bold">0</span>
+          </div>
+          <button onclick="toggleFavDrawer(false)" class="w-8 h-8 rounded-full bg-cream hover:bg-sand text-espresso flex items-center justify-center">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+        <div id="favDrawerList" class="divide-y divide-sand/50 overflow-y-auto max-h-[70vh] py-2"></div>
+      </div>
+      <div class="pt-4 border-t border-sand">
+        <button onclick="copyAllFavNames()" class="w-full py-2.5 px-4 rounded-xl border border-sand bg-cream hover:bg-sand text-[13px] font-semibold text-espresso flex items-center justify-center gap-2 transition">
+          <i class="fa-regular fa-copy"></i> 複製收藏名單給朋友
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-200 pointer-events-none bg-espresso text-white text-[13px] px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 border border-roast">
+    <i class="fa-solid fa-circle-check text-[#E5A859]"></i>
+    <span id="toastMsg">已完成操作</span>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const COFFEE_QUOTES = [
+      "「深焙美式 + 降噪耳機，今天產出效率加倍！」",
+      "「筆電剩 42%，去那間插座滿配的店救急吧！」",
+      "「工作卡關的時候，去摸摸親人的店貓最有效。」",
+      "「沒有一杯燕麥奶拿鐵解決不了的期末專題。」",
+      "「今天適合一個人發呆寫點東西，挑間安靜的咖啡館。」",
+      "「夜貓模式啟動！今晚就要在深夜咖啡廳通宵戰鬥。」",
+      "「點了熱水餃跟冰美式，這就是自習遊牧族的浪漫。」"
+    ];
+    let quoteIndex = 0;
+    function shuffleCoffeeQuote() {
+      quoteIndex = (quoteIndex + 1) % COFFEE_QUOTES.length;
+      const el = document.getElementById('coffeeQuoteText');
+      if (el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(4px)';
+        setTimeout(() => {
+          el.textContent = COFFEE_QUOTES[quoteIndex];
+          el.style.transition = 'all 0.25s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 150);
+      }
+      showToast('☕ 已換上一杯新的工作特調！');
+    }
+  </script>
+</body>
+</html>

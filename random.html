@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>選擇障礙？ | CAFE NOTES</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23231B16'/%3E%3Cpath d='M16 24h26v16a12 12 0 0 1-12 12H28a12 12 0 0 1-12-12V24z' fill='%23FAF8F5' stroke='%23C86D51' stroke-width='2'/%3E%3Cpath d='M42 27h5a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h-5' fill='none' stroke='%23FAF8F5' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M23 15c0 3-2 4-2 6M29 13c0 3-2 4-2 6M35 15c0 3-2 4-2 6' stroke='%23E5A859' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='29' cy='33' r='5' fill='%23C86D51'/%3E%3Crect x='12' y='52' width='34' height='4' rx='2' fill='%23E5A859'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            serif: ['"Noto Serif TC"', 'serif'],
+          },
+          colors: {
+            oat: '#FAF8F5', cream: '#F4ECE4', sand: '#E6DDD2',
+            espresso: '#231B16', roast: '#3D2D23', caramel: '#7D614E', terracotta: '#C86D51'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-oat journal-paper text-espresso min-h-screen flex flex-col antialiased selection:bg-sand selection:text-espresso">
+
+  <header class="sticky top-0 z-40 bg-oat/95 backdrop-blur-md border-b border-sand shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[4rem] py-2 flex items-center justify-between gap-2 sm:gap-4">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-espresso text-sand flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+          <i class="fa-solid fa-mug-saucer text-sm sm:text-base text-[#E5A859]"></i>
+        </div>
+        <div class="flex flex-col justify-center">
+          <span class="font-serif font-black text-lg sm:text-xl tracking-tight text-espresso leading-tight whitespace-nowrap">CAFE NOTES</span>
+          <p class="hidden sm:block text-[12px] sm:text-[13px] text-caramel font-medium leading-none mt-0.5 whitespace-nowrap">全台自習工作咖啡指南</p>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1 bg-cream/70 p-1.5 rounded-xl border border-sand shrink-0">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-house opacity-70 mr-1"></i> 首頁
+        </a>
+        <a href="cafes.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-magnifying-glass opacity-70 mr-1"></i> 找咖啡廳
+        </a>
+        <a href="random.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap bg-white text-espresso shadow-xs">
+          <i class="fa-solid fa-dice opacity-70 mr-1"></i> 選擇障礙？
+        </a>
+        <a href="guide.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-book-open-reader opacity-70 mr-1"></i> 遊牧須知
+        </a>
+      </nav>
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <a href="https://www.threads.net/@mag__art_/post/C2GQVKvyxQk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-semibold bg-white border border-sand text-espresso hover:border-terracotta hover:text-terracotta transition shadow-2xs whitespace-nowrap">
+          <i class="fa-brands fa-threads text-sm"></i>
+          <span><span class="hidden md:inline">Threads : </span><strong class="underline decoration-terracotta underline-offset-2">mag__art_</strong></span>
+        </a>
+        <button onclick="toggleFavDrawer(true)" class="relative flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-semibold border border-sand bg-white hover:bg-cream text-espresso transition active:scale-95 whitespace-nowrap">
+          <i class="fa-solid fa-bookmark text-terracotta"></i>
+          <span class="hidden sm:inline">口袋名單</span>
+          <span id="favBadge" class="hidden px-1.5 sm:px-2 py-0.5 bg-terracotta text-white text-[11px] sm:text-[13px] rounded-full font-bold leading-none">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-sand grid grid-cols-4 py-2 text-center shadow-lg">
+    <a href="index.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-house text-base mb-1"></i><span>首頁</span>
+    </a>
+    <a href="cafes.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-magnifying-glass text-base mb-1"></i><span>找咖啡廳</span>
+    </a>
+    <a href="random.html" class="text-[13px] font-bold py-1 text-espresso flex flex-col items-center">
+      <i class="fa-solid fa-dice text-base mb-1"></i><span>選擇障礙？</span>
+    </a>
+    <a href="guide.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-book-open-reader text-base mb-1"></i><span>遊牧須知</span>
+    </a>
+  </div>
+  <main class="flex-1 py-12 px-4 pb-20 md:pb-12">
+    <div class="max-w-md mx-auto text-center">
+      <div id="diceBox" onclick="rollRandomCafe(true)" class="w-20 h-20 bg-cream text-terracotta rounded-3xl flex items-center justify-center mx-auto mb-4 text-3xl shadow-xs border border-sand cursor-pointer hover:bg-sand/60 transition active:scale-95">
+        <i class="fa-solid fa-dice"></i>
+      </div>
+      <h1 class="font-serif text-2xl font-black text-espresso mb-2">選擇障礙？</h1>
+      <p class="text-[15px] text-caramel mb-4 leading-relaxed">出門前不知去哪好？點擊上方骰子，讓命運替你盲抽一間！</p>
+      <div class="inline-flex items-center p-1 bg-cream/70 rounded-xl border border-sand mb-6">
+        <button id="pickModeOpen" onclick="setPickMode('open')" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition bg-espresso text-white shadow-xs">🟢 只抽當下營業中</button>
+        <button id="pickModeAll" onclick="setPickMode('all')" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition text-espresso hover:bg-sand/60">☕ 抽全體店家 (含打烊)</button>
+      </div>
+      <div id="randomCard" class="bg-white border border-sand rounded-2xl p-6 mb-5 text-left shadow-md transition-all">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span id="rStatus" class="text-[13px] font-bold px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800">營業中</span>
+            <span id="rRegion" class="text-[13px] font-semibold px-2.5 py-0.5 bg-cream text-espresso rounded">雙北捷運市區</span>
+          </div>
+          <span id="rPrice" class="text-[13px] text-caramel font-bold">$200-400</span>
+        </div>
+        <h2 id="rMainTitle" class="font-serif text-xl sm:text-2xl font-black text-espresso tracking-wide leading-snug">店名</h2>
+        <p id="rSubTitle" class="text-[13px] text-caramel empty:hidden mb-2"></p>
+        <div class="flex items-center gap-2 text-[13px] text-espresso font-semibold bg-cream/40 px-3 py-1.5 rounded-lg border border-sand/50 my-3">
+          <i class="fa-regular fa-clock text-terracotta"></i>
+          <span>今日營業時間：<b id="rHours">12:00 - 20:00</b></span>
+        </div>
+        <div class="p-3.5 bg-oat rounded-xl border border-sand/70 text-[15px] text-espresso leading-relaxed mb-3.5">
+          <p id="rNotes">店家筆記與特色</p>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-[13px] text-caramel mb-3.5">
+          <div><span class="opacity-70">插座：</span><b id="rSocket" class="text-espresso font-semibold">大部分有插座</b></div>
+          <div><span class="opacity-70">時間：</span><b id="rTime" class="text-espresso font-semibold">不限時</b></div>
+        </div>
+        <div id="rBadges" class="flex flex-wrap gap-1.5 text-[13px] mb-5"></div>
+        <div class="grid grid-cols-2 gap-3">
+          <button onclick="rollRandomCafe(true)" id="rRerollBtn" class="py-2.5 px-3 rounded-xl border border-sand bg-cream hover:bg-sand text-espresso text-[13px] font-bold flex items-center justify-center gap-1.5 transition active:scale-95">
+            <i class="fa-solid fa-arrows-rotate text-sm"></i> <span>再搖一次</span>
+          </button>
+          <a id="rMapBtn" href="#" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-xl bg-espresso hover:bg-black text-white text-[13px] font-bold flex items-center justify-center gap-1.5 transition shadow-xs active:scale-95">
+            <i class="fa-solid fa-location-arrow text-[#E5A859]"></i> 前往地圖
+          </a>
+        </div>
+      </div>
+      <p id="rNoticeText" class="text-[13px] text-caramel">※ 目前模式：僅自當前營業中的店家盲抽，出門不撲空。</p>
+    </div>
+  </main>
+
+  <div id="favDrawer" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-espresso/40 backdrop-blur-2xs" onclick="toggleFavDrawer(false)"></div>
+    <div class="absolute inset-y-0 right-0 max-w-sm w-full bg-white shadow-xl border-l border-sand flex flex-col justify-between p-6">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-sand">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-bookmark text-terracotta"></i>
+            <h3 class="font-serif text-lg font-bold text-espresso">口袋名單</h3>
+            <span id="drawerFavCount" class="text-[13px] px-2 py-0.5 rounded-full bg-cream text-caramel font-bold">0</span>
+          </div>
+          <button onclick="toggleFavDrawer(false)" class="w-8 h-8 rounded-full bg-cream hover:bg-sand text-espresso flex items-center justify-center">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+        <div id="favDrawerList" class="divide-y divide-sand/50 overflow-y-auto max-h-[70vh] py-2"></div>
+      </div>
+      <div class="pt-4 border-t border-sand">
+        <button onclick="copyAllFavNames()" class="w-full py-2.5 px-4 rounded-xl border border-sand bg-cream hover:bg-sand text-[13px] font-semibold text-espresso flex items-center justify-center gap-2 transition">
+          <i class="fa-regular fa-copy"></i> 複製收藏名單給朋友
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-200 pointer-events-none bg-espresso text-white text-[13px] px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 border border-roast">
+    <i class="fa-solid fa-circle-check text-[#E5A859]"></i>
+    <span id="toastMsg">已完成操作</span>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let cafes = [];
+    let currentPickMode = 'open';
+    document.addEventListener('DOMContentLoaded', () => {
+      cafes = getParsedCafes();
+      rollRandomCafe(false);
+    });
+    function setPickMode(mode) {
+      currentPickMode = mode;
+      const btnOpen = document.getElementById('pickModeOpen');
+      const btnAll = document.getElementById('pickModeAll');
+      const notice = document.getElementById('rNoticeText');
+      if (mode === 'open') {
+        btnOpen.className = "px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition bg-espresso text-white shadow-xs";
+        btnAll.className = "px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition text-espresso hover:bg-sand/60";
+        notice.textContent = "※ 目前模式：僅自當前營業中的店家盲抽，出門不撲空。";
+      } else {
+        btnAll.className = "px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition bg-espresso text-white shadow-xs";
+        btnOpen.className = "px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition text-espresso hover:bg-sand/60";
+        notice.textContent = "※ 目前模式：抽取全部已收錄店家，包含休息中店家。";
+      }
+      rollRandomCafe(true);
+    }
+    function rollRandomCafe(triggerAnimation = true) {
+      let pool = cafes.filter(c => !c.isClosedPermanent && !c.isClosedTemp);
+      if (currentPickMode === 'open') {
+        const openPool = pool.filter(c => getCafeRealtimeStatus(c).isOpenNow);
+        if (openPool.length > 0) pool = openPool;
+        else showToast('當前多數店家已打烊，為您自全部名單抽選');
+      }
+      if (pool.length === 0) return;
+      const diceBox = document.getElementById('diceBox');
+      const randomCard = document.getElementById('randomCard');
+      if (triggerAnimation) {
+        diceBox.classList.remove('animate-shake-dice');
+        randomCard.classList.remove('animate-rumble-card');
+        void diceBox.offsetWidth;
+        diceBox.classList.add('animate-shake-dice');
+      }
+      setTimeout(() => {
+        const picked = pool[Math.floor(Math.random() * pool.length)];
+        const status = getCafeRealtimeStatus(picked);
+        document.getElementById('rStatus').textContent = status.label;
+        document.getElementById('rStatus').className = `text-[13px] font-bold px-2.5 py-0.5 rounded ${status.color}`;
+        document.getElementById('rRegion').textContent = picked.region;
+        document.getElementById('rPrice').textContent = picked.price;
+        document.getElementById('rMainTitle').textContent = picked.mainTitle;
+        const subElem = document.getElementById('rSubTitle');
+        if (picked.subTitle) { subElem.textContent = picked.subTitle; subElem.classList.remove('hidden'); } else { subElem.textContent = ''; subElem.classList.add('hidden'); }
+        document.getElementById('rHours').textContent = picked.hours;
+        document.getElementById('rNotes').textContent = picked.notes;
+        document.getElementById('rSocket').textContent = picked.socketDesc;
+        document.getElementById('rTime').textContent = picked.timeDesc;
+        document.getElementById('rBadges').innerHTML = picked.tags.map(t => `<span class="px-2.5 py-1 rounded bg-cream text-espresso font-medium">#${t}</span>`).join('');
+        document.getElementById('rMapBtn').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(picked.fullName)}`;
+        if (triggerAnimation) randomCard.classList.add('animate-rumble-card');
+      }, triggerAnimation ? 260 : 0);
+    }
+  </script>
+</body>
+</html>

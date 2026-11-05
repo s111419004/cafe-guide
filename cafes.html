@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>找咖啡廳 | CAFE NOTES</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23231B16'/%3E%3Cpath d='M16 24h26v16a12 12 0 0 1-12 12H28a12 12 0 0 1-12-12V24z' fill='%23FAF8F5' stroke='%23C86D51' stroke-width='2'/%3E%3Cpath d='M42 27h5a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h-5' fill='none' stroke='%23FAF8F5' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M23 15c0 3-2 4-2 6M29 13c0 3-2 4-2 6M35 15c0 3-2 4-2 6' stroke='%23E5A859' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='29' cy='33' r='5' fill='%23C86D51'/%3E%3Crect x='12' y='52' width='34' height='4' rx='2' fill='%23E5A859'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            serif: ['"Noto Serif TC"', 'serif'],
+          },
+          colors: {
+            oat: '#FAF8F5', cream: '#F4ECE4', sand: '#E6DDD2',
+            espresso: '#231B16', roast: '#3D2D23', caramel: '#7D614E', terracotta: '#C86D51'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-oat journal-paper text-espresso min-h-screen flex flex-col antialiased selection:bg-sand selection:text-espresso">
+
+  <header class="sticky top-0 z-40 bg-oat/95 backdrop-blur-md border-b border-sand shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[4rem] py-2 flex items-center justify-between gap-2 sm:gap-4">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-espresso text-sand flex items-center justify-center shadow-xs group-hover:scale-105 transition shrink-0">
+          <i class="fa-solid fa-mug-saucer text-sm sm:text-base text-[#E5A859]"></i>
+        </div>
+        <div class="flex flex-col justify-center">
+          <span class="font-serif font-black text-lg sm:text-xl tracking-tight text-espresso leading-tight whitespace-nowrap">CAFE NOTES</span>
+          <p class="hidden sm:block text-[12px] sm:text-[13px] text-caramel font-medium leading-none mt-0.5 whitespace-nowrap">全台自習工作咖啡指南</p>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1 bg-cream/70 p-1.5 rounded-xl border border-sand shrink-0">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-house opacity-70 mr-1"></i> 首頁
+        </a>
+        <a href="cafes.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap bg-white text-espresso shadow-xs">
+          <i class="fa-solid fa-magnifying-glass opacity-70 mr-1"></i> 找咖啡廳
+        </a>
+        <a href="random.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-dice opacity-70 mr-1"></i> 選擇障礙？
+        </a>
+        <a href="guide.html" class="px-3.5 py-1.5 rounded-lg text-[13px] font-bold transition whitespace-nowrap text-caramel hover:text-espresso">
+          <i class="fa-solid fa-book-open-reader opacity-70 mr-1"></i> 遊牧須知
+        </a>
+      </nav>
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <a href="https://www.threads.net/@mag__art_/post/C2GQVKvyxQk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-semibold bg-white border border-sand text-espresso hover:border-terracotta hover:text-terracotta transition shadow-2xs whitespace-nowrap">
+          <i class="fa-brands fa-threads text-sm"></i>
+          <span><span class="hidden md:inline">Threads : </span><strong class="underline decoration-terracotta underline-offset-2">mag__art_</strong></span>
+        </a>
+        <button onclick="toggleFavDrawer(true)" class="relative flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-semibold border border-sand bg-white hover:bg-cream text-espresso transition active:scale-95 whitespace-nowrap">
+          <i class="fa-solid fa-bookmark text-terracotta"></i>
+          <span class="hidden sm:inline">口袋名單</span>
+          <span id="favBadge" class="hidden px-1.5 sm:px-2 py-0.5 bg-terracotta text-white text-[11px] sm:text-[13px] rounded-full font-bold leading-none">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-sand grid grid-cols-4 py-2 text-center shadow-lg">
+    <a href="index.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-house text-base mb-1"></i><span>首頁</span>
+    </a>
+    <a href="cafes.html" class="text-[13px] font-bold py-1 text-espresso flex flex-col items-center">
+      <i class="fa-solid fa-magnifying-glass text-base mb-1"></i><span>找咖啡廳</span>
+    </a>
+    <a href="random.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-dice text-base mb-1"></i><span>選擇障礙？</span>
+    </a>
+    <a href="guide.html" class="text-[13px] font-bold py-1 text-caramel flex flex-col items-center">
+      <i class="fa-solid fa-book-open-reader text-base mb-1"></i><span>遊牧須知</span>
+    </a>
+  </div>
+  <div class="flex-1 pb-16 md:pb-8">
+    <div class="bg-gradient-to-b from-cream/50 to-oat border-b border-sand py-5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3.5 mb-4">
+          <div class="relative flex-1 max-w-xl">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-caramel">
+              <i class="fa-solid fa-magnifying-glass text-sm"></i>
+            </div>
+            <input type="text" id="searchInput" placeholder="搜尋店名、捷運站、特色（例：安靜、水餃、店貓、插座...）" class="w-full pl-10 pr-16 py-2.5 bg-white rounded-xl border border-sand focus:outline-none focus:ring-2 focus:ring-espresso/20 focus:border-espresso text-[15px] text-espresso shadow-2xs placeholder:text-caramel/60" oninput="handleSearch()" />
+            <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute inset-y-0 right-2 my-auto h-7 px-2.5 rounded-lg text-[13px] text-caramel hover:text-espresso hover:bg-cream flex items-center transition">清除</button>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <label class="inline-flex items-center gap-2 text-[13px] font-bold cursor-pointer select-none bg-emerald-50 text-emerald-900 border border-emerald-200 px-3.5 py-2.5 rounded-xl shadow-2xs hover:bg-emerald-100 transition">
+              <input type="checkbox" id="onlyOpenNowToggle" onchange="applyFilters()" class="accent-emerald-600 w-4 h-4 rounded">
+              <span>🟢 僅顯示目前營業中</span>
+            </label>
+            <div class="relative inline-flex items-center">
+              <select id="timeSlotSelect" onchange="applyFilters()" class="bg-white text-[13px] font-semibold text-espresso border border-sand px-3 py-2.5 rounded-xl shadow-2xs hover:bg-cream/40 focus:outline-none cursor-pointer">
+                <option value="all">🕒 預計何時去？（全部時段）</option>
+                <option value="now">⚡ 現在立刻去（當下營業中）</option>
+                <option value="morning">🌅 上午時段 (12:00前已營業)</option>
+                <option value="afternoon">☕ 下午自習 (14:00-18:00)</option>
+                <option value="night">🌙 夜間加班 (營業過21:00)</option>
+                <option value="midnight">🦉 深夜夜貓 (營業過23:00或凌晨)</option>
+              </select>
+            </div>
+            <label class="inline-flex items-center gap-2 text-[13px] font-semibold cursor-pointer select-none bg-white px-3.5 py-2.5 rounded-xl border border-sand shadow-2xs hover:bg-cream/40 transition">
+              <input type="checkbox" id="hideClosedToggle" onchange="applyFilters()" checked class="accent-espresso w-4 h-4 rounded">
+              <span>隱藏歇業/暫停</span>
+            </label>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-sand p-4 sm:p-5 shadow-2xs space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-[13px] font-bold text-espresso uppercase tracking-wider flex items-center gap-1.5">
+                <i class="fa-solid fa-sliders text-terracotta"></i> 依個人需求複選 (可多選)
+              </span>
+              <button onclick="resetAllFilters()" class="text-[13px] text-terracotta hover:underline font-semibold flex items-center gap-1">
+                <i class="fa-solid fa-rotate-left"></i> 重設全部
+              </button>
+            </div>
+            <div id="demandTagsContainer" class="flex flex-wrap gap-2"></div>
+          </div>
+          <hr class="border-sand/60">
+          <div>
+            <span class="block text-[13px] font-bold text-espresso uppercase tracking-wider mb-2.5 flex items-center gap-1">
+              <i class="fa-solid fa-location-dot text-terracotta"></i> 地區篩選
+            </span>
+            <div id="regionContainer" class="flex flex-wrap gap-2"></div>
+          </div>
+          <div class="pt-3 border-t border-sand/50 flex flex-wrap items-center justify-between gap-2 text-[13px] text-caramel">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-espresso">作用中：</span>
+              <div id="activePillsContainer" class="flex items-center gap-2 flex-wrap"></div>
+            </div>
+            <div class="font-medium text-espresso">
+              共符合 <strong id="matchCount" class="font-bold text-terracotta text-base">0</strong> 間咖啡廳
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div id="cafeGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="emptyState" class="hidden text-center py-16 px-4">
+        <div class="w-14 h-14 rounded-2xl bg-cream text-caramel mx-auto flex items-center justify-center text-xl mb-3">
+          <i class="fa-solid fa-mug-saucer"></i>
+        </div>
+        <h3 class="font-serif text-lg font-bold text-espresso mb-1">找不到符合條件的咖啡廳</h3>
+        <p class="text-[15px] text-caramel max-w-sm mx-auto mb-4">試著取消部分複選條件，或關閉「僅顯示目前營業中」以瀏覽所有名單。</p>
+        <button onclick="resetAllFilters()" class="px-4 py-2 rounded-xl bg-espresso text-white text-[13px] font-semibold hover:bg-black transition">重設所有條件</button>
+      </div>
+    </main>
+  </div>
+  <div id="detailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop" onclick="closeAllModals(event)">
+    <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-sand modal-box relative" onclick="event.stopPropagation()">
+      <button onclick="closeDetailModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white/20 hover:bg-white/35 text-white flex items-center justify-center transition active:scale-90 cursor-pointer backdrop-blur-xs">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div class="p-6 bg-roast text-white relative pr-14 shadow-inner">
+        <div class="flex items-center gap-2 mb-2.5">
+          <span id="modalStatusBadge" class="text-[13px] font-bold px-2.5 py-0.5 rounded bg-emerald-600 text-white">營業中</span>
+          <span id="modalRegionBadge" class="text-[13px] font-semibold px-2.5 py-0.5 rounded bg-white/15 text-sand border border-white/10">雙北捷運市區</span>
+          <span id="modalPriceBadge" class="text-[13px] text-sand/80 font-medium">$200-400</span>
+        </div>
+        <h2 id="modalMainTitle" class="font-serif text-2xl font-black tracking-wide text-white leading-snug">咖啡店名稱</h2>
+        <p id="modalSubTitle" class="text-[13px] text-sand/80 tracking-wide mt-1 empty:hidden"></p>
+      </div>
+      <div class="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
+        <div class="flex items-center justify-between p-3 bg-cream/40 rounded-xl border border-sand/60 text-[13px]">
+          <span class="text-caramel font-medium flex items-center gap-1.5"><i class="fa-regular fa-clock text-terracotta"></i> 營業時間</span>
+          <span id="modalHoursText" class="font-bold text-espresso text-[15px]">12:00 - 20:00</span>
+        </div>
+        <div class="bg-oat rounded-xl p-4 border border-sand/70">
+          <div class="text-[13px] font-bold text-terracotta mb-1.5 flex items-center gap-1.5"><i class="fa-solid fa-comment-dots"></i> 店家特色與探店筆記</div>
+          <p id="modalNotes" class="text-[15px] text-espresso leading-relaxed"></p>
+        </div>
+        <div class="grid grid-cols-2 gap-3 text-[13px]">
+          <div class="p-3 bg-cream/30 rounded-xl border border-sand/60">
+            <span class="block text-caramel font-medium mb-1">插座配置</span>
+            <span id="modalSocketText" class="font-bold text-espresso text-[15px]">大部分座位有插座</span>
+          </div>
+          <div class="p-3 bg-cream/30 rounded-xl border border-sand/60">
+            <span class="block text-caramel font-medium mb-1">時間限制</span>
+            <span id="modalTimeLimitText" class="font-bold text-espresso text-[15px]">平日不限時</span>
+          </div>
+        </div>
+        <div>
+          <span class="block text-[13px] font-bold text-caramel mb-2">特色標籤：</span>
+          <div id="modalTagsContainer" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+      <div class="p-4 bg-oat border-t border-sand flex items-center justify-between gap-3">
+        <button id="modalFavBtn" class="px-4 py-2.5 rounded-xl border border-sand bg-white hover:bg-cream text-[13px] font-semibold text-espresso flex items-center gap-1.5 transition">
+          <i class="fa-regular fa-bookmark"></i> <span>加入口袋</span>
+        </button>
+        <a id="modalMapBtn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-4 rounded-xl bg-espresso hover:bg-black text-white text-[13px] font-semibold flex items-center justify-center gap-2 transition shadow-xs">
+          <i class="fa-solid fa-map-location-dot text-[#E5A859]"></i> <span>開啟 Google 地圖</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="favDrawer" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-espresso/40 backdrop-blur-2xs" onclick="toggleFavDrawer(false)"></div>
+    <div class="absolute inset-y-0 right-0 max-w-sm w-full bg-white shadow-xl border-l border-sand flex flex-col justify-between p-6">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-sand">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-bookmark text-terracotta"></i>
+            <h3 class="font-serif text-lg font-bold text-espresso">口袋名單</h3>
+            <span id="drawerFavCount" class="text-[13px] px-2 py-0.5 rounded-full bg-cream text-caramel font-bold">0</span>
+          </div>
+          <button onclick="toggleFavDrawer(false)" class="w-8 h-8 rounded-full bg-cream hover:bg-sand text-espresso flex items-center justify-center">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+        <div id="favDrawerList" class="divide-y divide-sand/50 overflow-y-auto max-h-[70vh] py-2"></div>
+      </div>
+      <div class="pt-4 border-t border-sand">
+        <button onclick="copyAllFavNames()" class="w-full py-2.5 px-4 rounded-xl border border-sand bg-cream hover:bg-sand text-[13px] font-semibold text-espresso flex items-center justify-center gap-2 transition">
+          <i class="fa-regular fa-copy"></i> 複製收藏名單給朋友
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-200 pointer-events-none bg-espresso text-white text-[13px] px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 border border-roast">
+    <i class="fa-solid fa-circle-check text-[#E5A859]"></i>
+    <span id="toastMsg">已完成操作</span>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let cafes = [];
+    let selectedDemandTags = new Set();
+    let selectedRegion = '全部';
+    let searchQuery = '';
+    let currentDetailCafe = null;
+    const DEMAND_TAGS = ['適合讀書工作', '有插座', '不限時', '安靜專注', '深夜營業', '正餐鹹食', '店貓/寵物友善'];
+    document.addEventListener('DOMContentLoaded', () => {
+      cafes = getParsedCafes();
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.getAll('tag').forEach(t => selectedDemandTags.add(t));
+      const q = urlParams.get('q');
+      if (q) { searchQuery = q; document.getElementById('searchInput').value = q; }
+      renderFilterControls();
+      applyFilters();
+    });
+    function renderFilterControls() {
+      document.getElementById('demandTagsContainer').innerHTML = DEMAND_TAGS.map(tag => `
+        <button onclick="toggleDemandTag('${tag}')" class="px-3 py-1.5 rounded-full text-[13px] font-semibold border transition flex items-center gap-1.5 ${selectedDemandTags.has(tag) ? 'bg-espresso text-white border-espresso shadow-xs' : 'bg-cream/50 text-espresso border-sand hover:bg-cream'}">
+          <span>#${tag}</span>
+        </button>
+      `).join('');
+      const regions = ['全部', '雙北捷運市區', '新竹地區', '台中地區', '嘉義/彰化', '桃園地區'];
+      document.getElementById('regionContainer').innerHTML = regions.map(reg => {
+        const count = reg === '全部' ? cafes.length : cafes.filter(c => c.region === reg).length;
+        return `<button onclick="setRegion('${reg}')" class="px-3.5 py-1.5 rounded-xl text-[13px] font-bold border transition ${selectedRegion === reg ? 'bg-espresso text-white border-espresso shadow-xs' : 'bg-white text-espresso border-sand hover:bg-cream'}">${reg} (${count})</button>`;
+      }).join('');
+    }
+    function toggleDemandTag(tag) {
+      if (selectedDemandTags.has(tag)) selectedDemandTags.delete(tag); else selectedDemandTags.add(tag);
+      renderFilterControls(); applyFilters();
+    }
+    function setRegion(reg) { selectedRegion = reg; renderFilterControls(); applyFilters(); }
+    function resetAllFilters() {
+      selectedDemandTags.clear(); selectedRegion = '全部'; searchQuery = '';
+      document.getElementById('searchInput').value = '';
+      document.getElementById('onlyOpenNowToggle').checked = false;
+      document.getElementById('timeSlotSelect').value = 'all';
+      document.getElementById('hideClosedToggle').checked = true;
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      renderFilterControls(); applyFilters();
+    }
+    function handleSearch() {
+      searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+      document.getElementById('clearSearchBtn').classList.toggle('hidden', !searchQuery);
+      applyFilters();
+    }
+    function clearSearch() { document.getElementById('searchInput').value = ''; handleSearch(); }
+    function applyFilters() {
+      const hideClosed = document.getElementById('hideClosedToggle').checked;
+      const onlyOpenNow = document.getElementById('onlyOpenNowToggle').checked;
+      const timeSlot = document.getElementById('timeSlotSelect').value;
+      const filtered = cafes.filter(cafe => {
+        if (hideClosed && (cafe.isClosedPermanent || cafe.isClosedTemp)) return false;
+        if (selectedRegion !== '全部' && cafe.region !== selectedRegion) return false;
+        for (const tag of selectedDemandTags) { if (!cafe.tags.includes(tag)) return false; }
+        const status = getCafeRealtimeStatus(cafe);
+        if (onlyOpenNow && !status.isOpenNow) return false;
+        if (timeSlot !== 'all') {
+          if (timeSlot === 'now' && !status.isOpenNow) return false;
+          const match = cafe.hours.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/);
+          if (match) {
+            const openH = parseInt(match[1], 10);
+            let closeH = parseInt(match[3], 10);
+            if (closeH <= openH) closeH += 24;
+            if (timeSlot === 'morning' && openH > 12) return false;
+            if (timeSlot === 'night' && closeH < 21) return false;
+            if (timeSlot === 'midnight' && closeH < 23) return false;
+          }
+        }
+        if (searchQuery) {
+          const pool = (cafe.fullName + ' ' + cafe.notes + ' ' + cafe.region + ' ' + cafe.tags.join(' ')).toLowerCase();
+          if (!pool.includes(searchQuery)) return false;
+        }
+        return true;
+      });
+      renderCafeList(filtered); renderActivePills();
+    }
+    function renderActivePills() {
+      const container = document.getElementById('activePillsContainer');
+      const pills = [];
+      if (selectedRegion !== '全部') pills.push(`<span>📍 ${selectedRegion}</span>`);
+      selectedDemandTags.forEach(t => pills.push(`<span>#${t}</span>`));
+      if (document.getElementById('onlyOpenNowToggle').checked) pills.push(`<span>🟢 營業中</span>`);
+      if (searchQuery) pills.push(`<span>🔍 "${searchQuery}"</span>`);
+      container.innerHTML = pills.length === 0 ? `<span class="text-caramel/70">無 (顯示全部)</span>` : pills.map(p => `<span class="inline-flex items-center px-2.5 py-0.5 rounded-md bg-cream text-espresso text-[13px] font-medium border border-sand">${p}</span>`).join('');
+    }
+    function renderCafeList(list) {
+      const grid = document.getElementById('cafeGrid');
+      document.getElementById('matchCount').textContent = list.length;
+      if (list.length === 0) { grid.innerHTML = ''; document.getElementById('emptyState').classList.remove('hidden'); return; }
+      document.getElementById('emptyState').classList.add('hidden');
+      grid.innerHTML = list.map(cafe => {
+        const status = getCafeRealtimeStatus(cafe);
+        const isFav = favorites.includes(cafe.id);
+        return `
+          <div onclick="openDetailModal('${cafe.id}')" class="cafe-card bg-white rounded-2xl border border-sand p-5 flex flex-col justify-between cursor-pointer group shadow-2xs relative">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2 text-[13px]">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-bold ${status.color}">
+                    ${status.isOpenNow ? '<span class="pulse-dot"></span>' : ''}
+                    <span>${status.label}</span>
+                  </span>
+                  <span class="px-2 py-0.5 rounded bg-cream text-espresso font-medium">${cafe.region}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-caramel font-semibold">${cafe.price}</span>
+                  <button onclick="toggleFavorite(event, '${cafe.id}')" class="w-7 h-7 rounded-lg text-caramel hover:text-terracotta hover:bg-cream flex items-center justify-center transition">
+                    <i class="${isFav ? 'fa-solid text-terracotta' : 'fa-regular'} fa-bookmark"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mb-2">
+                <h3 class="font-serif font-black text-lg text-espresso group-hover:text-terracotta transition leading-snug">${cafe.mainTitle}</h3>
+                ${cafe.subTitle ? `<p class="text-[13px] text-caramel truncate mt-0.5">${cafe.subTitle}</p>` : ''}
+              </div>
+              <div class="text-[13px] text-caramel flex items-center gap-1.5 mb-2.5">
+                <i class="fa-regular fa-clock text-terracotta"></i>
+                <span>今日時間：<b class="text-espresso font-medium">${cafe.hours}</b></span>
+              </div>
+              <div class="p-3 bg-oat rounded-xl border border-sand/60 text-[13px] text-espresso leading-relaxed mb-3 line-clamp-2">${cafe.notes}</div>
+              <div class="grid grid-cols-2 gap-2 text-[13px] text-caramel mb-3">
+                <div class="truncate"><i class="fa-solid fa-plug text-terracotta mr-1 text-[11px]"></i><span>${cafe.socketDesc}</span></div>
+                <div class="truncate"><i class="fa-regular fa-hourglass-half text-terracotta mr-1 text-[11px]"></i><span>${cafe.timeDesc}</span></div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-sand/60 flex items-center justify-between gap-2 text-[13px]">
+              <span class="text-terracotta font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition"><span>詳細資訊</span><i class="fa-solid fa-angle-right text-[11px]"></i></span>
+              <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cafe.fullName)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="px-3 py-1.5 rounded-lg bg-cream hover:bg-espresso hover:text-white text-espresso font-semibold transition flex items-center gap-1.5">
+                <i class="fa-solid fa-map-location-dot text-xs text-terracotta"></i><span>地圖</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    function openDetailModal(cafeId) {
+      const cafe = cafes.find(c => c.id === cafeId);
+      if (!cafe) return;
+      currentDetailCafe = cafe;
+      const status = getCafeRealtimeStatus(cafe);
+      document.getElementById('modalStatusBadge').textContent = status.label;
+      document.getElementById('modalStatusBadge').className = `text-[13px] font-bold px-2.5 py-0.5 rounded ${status.color.replace('bg-', 'bg-opacity-90 bg-')}`;
+      document.getElementById('modalRegionBadge').textContent = cafe.region;
+      document.getElementById('modalPriceBadge').textContent = cafe.price;
+      document.getElementById('modalMainTitle').textContent = cafe.mainTitle;
+      const subElem = document.getElementById('modalSubTitle');
+      if (cafe.subTitle) { subElem.textContent = cafe.subTitle; subElem.classList.remove('hidden'); } else { subElem.textContent = ''; subElem.classList.add('hidden'); }
+      document.getElementById('modalHoursText').textContent = cafe.hours;
+      document.getElementById('modalNotes').textContent = cafe.notes;
+      document.getElementById('modalSocketText').textContent = cafe.socketDesc;
+      document.getElementById('modalTimeLimitText').textContent = cafe.timeDesc;
+      document.getElementById('modalTagsContainer').innerHTML = cafe.tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-sand/60 text-espresso text-[13px] font-medium">#${t}</span>`).join('');
+      document.getElementById('modalMapBtn').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cafe.fullName)}`;
+      updateModalFavButton();
+      document.getElementById('detailModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.add('hidden');
+      document.body.style.overflow = '';
+      currentDetailCafe = null;
+    }
+    function closeAllModals(e) { if (e.target.id === 'detailModal') closeDetailModal(); }
+    function updateModalFavButton() {
+      if (!currentDetailCafe) return;
+      const isFav = favorites.includes(currentDetailCafe.id);
+      const btn = document.getElementById('modalFavBtn');
+      btn.onclick = () => toggleFavorite(null, currentDetailCafe.id);
+      btn.innerHTML = isFav ? `<i class="fa-solid fa-bookmark text-terracotta"></i> <span>已在口袋</span>` : `<i class="fa-regular fa-bookmark"></i> <span>加入口袋</span>`;
+    }
+  </script>
+</body>
+</html>
